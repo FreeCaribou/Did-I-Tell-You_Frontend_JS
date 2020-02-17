@@ -1,0 +1,7 @@
+{
+  "name": "Did-I-Tell-You_Frontend_JS",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

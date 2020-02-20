@@ -1,0 +1,9 @@
+{
+    "General": {
+        "HelloWorld": "Bonjour le monde"
+    },
+    "Menu": {
+        "Home": "Accueil",
+        "Relationship": "Relation"
+    }
+}

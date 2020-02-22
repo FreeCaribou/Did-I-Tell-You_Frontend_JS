@@ -1,16 +1,10 @@
 import React, { Component } from "react";
-import {
-  IonContent,
-  IonHeader,
-  IonPage,
-  IonTitle,
-  IonToolbar
-} from "@ionic/react";
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from "@ionic/react";
 import "./Home.css";
 import i18n from "i18n-js";
 import ExploreContainer from "../components/ExploreContainer";
 
-class Home extends Component {
+class HomePage extends Component {
 
   componentDidMount() {
 
@@ -34,4 +28,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default HomePage;

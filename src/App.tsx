@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Redirect, Route } from 'react-router-dom';
+import React, { Component } from "react";
+import { Redirect, Route } from "react-router-dom";
 import {
   IonApp,
   IonIcon,
@@ -8,30 +8,30 @@ import {
   IonTabBar,
   IonTabButton,
   IonTabs
-} from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
-import { home, person } from 'ionicons/icons';
-import Home from './pages/Home';
-import Relationship from './pages/Relationship';
+} from "@ionic/react";
+import { IonReactRouter } from "@ionic/react-router";
+import { home, person } from "ionicons/icons";
+import Home from "./pages/Home";
+import Relationship from "./pages/Relationship";
 
 /* Core CSS required for Ionic components to work properly */
-import '@ionic/react/css/core.css';
+import "@ionic/react/css/core.css";
 
 /* Basic CSS for apps built with Ionic */
-import '@ionic/react/css/normalize.css';
-import '@ionic/react/css/structure.css';
-import '@ionic/react/css/typography.css';
+import "@ionic/react/css/normalize.css";
+import "@ionic/react/css/structure.css";
+import "@ionic/react/css/typography.css";
 
 /* Optional CSS utils that can be commented out */
-import '@ionic/react/css/padding.css';
-import '@ionic/react/css/float-elements.css';
-import '@ionic/react/css/text-alignment.css';
-import '@ionic/react/css/text-transformation.css';
-import '@ionic/react/css/flex-utils.css';
-import '@ionic/react/css/display.css';
+import "@ionic/react/css/padding.css";
+import "@ionic/react/css/float-elements.css";
+import "@ionic/react/css/text-alignment.css";
+import "@ionic/react/css/text-transformation.css";
+import "@ionic/react/css/flex-utils.css";
+import "@ionic/react/css/display.css";
 
 /* Theme variables */
-import './theme/variables.css';
+import "./theme/variables.css";
 
 import i18n from "i18n-js";
 import en from "./i18n/en.json";
@@ -40,8 +40,8 @@ import no from "./i18n/no.json";
 
 class App extends Component {
   state = {
-    currentLanguage: 'en',
-    acceptedLanguage: ['en', 'fr', 'no'], // will be nl, de, sw and fi later
+    currentLanguage: "en",
+    acceptedLanguage: ["en", "fr", "no"] // will be nl, de, sw and fi later
   };
 
   componentDidMount() {
@@ -49,24 +49,24 @@ class App extends Component {
     let userLang = navigator.language;
     userLang = userLang.slice(0, 2);
 
-    if (userLang === 'nb' || userLang === 'nn') {
-      userLang = 'no';
+    if (userLang === "nb" || userLang === "nn") {
+      userLang = "no";
     }
 
     if (this.state.acceptedLanguage.includes(userLang)) {
       this.setState({ currentLanguage: userLang });
     }
-  };
+  }
 
   changeLanguage = (language: string) => {
-    console.log('change lang', language);
+    console.log("change lang", language);
     this.setState({ currentLanguage: language });
     i18n.locale = language;
   };
 
   render() {
     i18n.locale = this.state.currentLanguage;
-    i18n.defaultLocale = 'en';
+    i18n.defaultLocale = "en";
     i18n.fallbacks = true;
     i18n.translations = { en, fr, no };
 
@@ -76,8 +76,16 @@ class App extends Component {
           <IonTabs>
             <IonRouterOutlet>
               <Route path="/home" component={Home} exact={true} />
-              <Route path="/relationship" component={Relationship} exact={true} />
-              <Route path="/" render={() => <Redirect to="/home" />} exact={true} />
+              <Route
+                path="/relationship"
+                component={Relationship}
+                exact={true}
+              />
+              <Route
+                path="/"
+                render={() => <Redirect to="/home" />}
+                exact={true}
+              />
             </IonRouterOutlet>
             <IonTabBar slot="bottom">
               <IonTabButton tab="Home" href="/home">
@@ -91,9 +99,9 @@ class App extends Component {
             </IonTabBar>
           </IonTabs>
         </IonReactRouter>
-      </IonApp >
-    )
-  };
+      </IonApp>
+    );
+  }
 }
 
 export default App;

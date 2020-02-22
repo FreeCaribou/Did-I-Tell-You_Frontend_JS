@@ -21,7 +21,7 @@ class Home extends Component {
     })
       .catch(function (error: any) {
         // handle error
-        console.log(error);
+        console.log(error.response);
       })
       .then(function () {
         // always executed

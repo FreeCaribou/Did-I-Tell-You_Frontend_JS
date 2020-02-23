@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { IonContent, IonPage, } from "@ionic/react";
+import { IonContent, IonPage } from "@ionic/react";
 import "./Relationship.css";
 import RelationshipService from "../services/relationship.service";
 import { Relationship } from "../models/Relationship";
+import { Loader } from "../components/Loader";
 
 class RelationshipPage extends Component {
   state = {
@@ -48,6 +49,7 @@ class RelationshipPage extends Component {
     return (
       <IonPage>
         <IonContent>
+          <Loader isLoading={this.state.isLoading} />
           <ul>{list}</ul>
         </IonContent>
       </IonPage>

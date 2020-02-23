@@ -1,6 +1,7 @@
 {
     "General": {
-        "HelloWorld": "Bonjour le monde"
+        "HelloWorld": "Bonjour le monde",
+        "Wait": "Attendez s'il vous plait"
     },
     "Menu": {
         "Home": "Accueil",

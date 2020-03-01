@@ -16,4 +16,9 @@ export const MOCK_RELATIONSHIP_FLO: Relationship = {
 export const MOCK_GET_RELATIONSHIPS = {
   data: [MOCK_RELATIONSHIP_SAMY, MOCK_RELATIONSHIP_FLO],
   status: 200
-} 
+}
+
+export const MOCK_GET_RELATIONSHIP = {
+  data: MOCK_RELATIONSHIP_SAMY,
+  status: 200
+}

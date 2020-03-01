@@ -3,8 +3,8 @@ import { Redirect, Route } from "react-router-dom";
 import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import { home, person } from "ionicons/icons";
-import Home from "./pages/HomePage";
-import Relationship from "./pages/RelationshipPage";
+import HomePage from "./pages/HomePage";
+import RelationshipPage from "./pages/RelationshipPage";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -29,6 +29,7 @@ import i18n from "i18n-js";
 import en from "./i18n/en.json";
 import fr from "./i18n/fr.json";
 import no from "./i18n/no.json";
+import RelationshipDetailPage from "./pages/RelationshipDetailPage";
 
 class App extends Component {
   state = {
@@ -67,10 +68,15 @@ class App extends Component {
         <IonReactRouter>
           <IonTabs>
             <IonRouterOutlet>
-              <Route path="/home" component={Home} exact={true} />
+              <Route path="/home" component={HomePage} exact={true} />
               <Route
                 path="/relationship"
-                component={Relationship}
+                component={RelationshipPage}
+                exact={true}
+              />
+              <Route
+                path="/relationship/:id"
+                component={RelationshipDetailPage}
                 exact={true}
               />
               <Route

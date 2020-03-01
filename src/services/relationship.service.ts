@@ -1,5 +1,5 @@
 import BaseService from "./base.service";
-import { MOCK_GET_RELATIONSHIPS } from "../mock/relationship.mock";
+import { MOCK_GET_RELATIONSHIPS, MOCK_GET_RELATIONSHIP } from "../mock/relationship.mock";
 
 export default class RelationshipService {
   baseUrl: string;
@@ -14,6 +14,10 @@ export default class RelationshipService {
 
   async getAllRelationship() {
     return this.mock ? MOCK_GET_RELATIONSHIPS : this.baseService.get(this.baseUrl);
+  }
+
+  async getOneRelationship(id: number) {
+    return this.mock ? MOCK_GET_RELATIONSHIP : this.baseService.get(`${this.baseUrl}${id}`);
   }
 
 }

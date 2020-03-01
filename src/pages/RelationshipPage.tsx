@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { IonContent, IonPage } from "@ionic/react";
+import { IonContent, IonPage, IonItem, IonList } from "@ionic/react";
 import "./Relationship.css";
 import RelationshipService from "../services/relationship.service";
 import { Relationship } from "../models/Relationship";
 import { Loader } from "../components/Loader";
+import { RelationshipItem } from "../components/RelationshipItem";
 
 class RelationshipPage extends Component {
   state = {
@@ -43,14 +44,16 @@ class RelationshipPage extends Component {
 
   render() {
     const list = this.state.relationshipList.map((item) =>
-      <li key={item.id}>{item.name}</li>
+      <IonItem routerLink={`/relationship/${item.id}`} key={item.id}>
+        <RelationshipItem relationship={item} />
+      </IonItem>
     );
 
     return (
       <IonPage>
         <IonContent>
           <Loader isLoading={this.state.isLoading} />
-          <ul>{list}</ul>
+          <IonList>{list}</IonList>
         </IonContent>
       </IonPage>
     );

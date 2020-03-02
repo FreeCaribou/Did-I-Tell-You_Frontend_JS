@@ -6,5 +6,8 @@
     "Menu": {
         "Home": "Home",
         "Relationship": "Relationship"
+    },
+    "Relationship": {
+        "Name": "Name"
     }
 }

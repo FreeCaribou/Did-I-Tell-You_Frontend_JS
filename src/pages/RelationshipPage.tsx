@@ -1,15 +1,18 @@
 import React, { Component } from "react";
-import { IonContent, IonPage, IonItem, IonList } from "@ionic/react";
+import { IonContent, IonPage, IonItem, IonList, IonFab, IonFabButton, IonIcon } from "@ionic/react";
 import "./Relationship.css";
 import RelationshipService from "../services/relationship.service";
 import { Relationship } from "../models/Relationship";
 import { Loader } from "../components/Loader";
 import { RelationshipItem } from "../components/RelationshipItem";
+import { AddRelationshipModal } from "../components/AddRelationshipModal";
+import { add } from 'ionicons/icons';
 
 class RelationshipPage extends Component {
   state = {
     relationshipList: Array<Relationship>(),
-    isLoading: true
+    isLoading: true,
+    showModal: false
   }
 
   relationshipService: RelationshipService;
@@ -17,6 +20,7 @@ class RelationshipPage extends Component {
   constructor(props: any) {
     super(props);
     this.relationshipService = new RelationshipService();
+    this.hideModal = this.hideModal.bind(this);
   }
 
   componentDidMount() {
@@ -42,6 +46,11 @@ class RelationshipPage extends Component {
       });
   }
 
+  hideModal(event: any) {
+    console.log(event);
+    this.setState({ showModal: false });
+  }
+
   render() {
     const list = this.state.relationshipList.map((item) =>
       <IonItem routerLink={`/relationship/${item.id}`} key={item.id}>
@@ -54,6 +63,12 @@ class RelationshipPage extends Component {
         <IonContent>
           <Loader isLoading={this.state.isLoading} />
           <IonList>{list}</IonList>
+          <IonFab vertical="bottom" horizontal="end" slot="fixed">
+            <IonFabButton onClick={() => this.setState({ showModal: true })}>
+              <IonIcon icon={add} />
+            </IonFabButton>
+          </IonFab>
+          <AddRelationshipModal showModal={this.state.showModal} hideModal={this.hideModal} />
         </IonContent>
       </IonPage>
     );
